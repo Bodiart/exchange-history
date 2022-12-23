@@ -54,7 +54,7 @@ class CalculatorViewModel @Inject constructor(
 
     init {
         setupCurrencyRates()
-        collectRateData()
+        collectCalculationData()
     }
 
     fun onBackClicked() = viewModelScope.launch {
@@ -133,7 +133,7 @@ class CalculatorViewModel @Inject constructor(
         mutableViewStateFlow.update { it.copy(isLoadingVisible = false) }
     }
 
-    private fun collectRateData() = viewModelScope.launch {
+    private fun collectCalculationData() = viewModelScope.launch {
         combine(
             selectedOriginalCurrencyFlow,
             selectedTargetCurrencyFlow,
